@@ -32,6 +32,10 @@ namespace Gibbed.BorderlandsOz.FileFormats
         {
             switch (platform)
             {
+                case Platform.Switch:
+                {
+                    return CompressionScheme.Invalid;
+                }
                 case Platform.PC:
                 case Platform.Shield:
                 {
@@ -52,6 +56,10 @@ namespace Gibbed.BorderlandsOz.FileFormats
         {
             switch (platform)
             {
+                case Platform.Switch:
+                {
+                    return CompressionScheme.Invalid;
+                }
                 case Platform.PC:
                 case Platform.X360:
                 {
