@@ -125,7 +125,10 @@ namespace Gibbed.BorderlandsOz.FileFormats
             {
                 var hash = CRC32.Hash(innerUncompressedBytes, 0, innerUncompressedBytes.Length);
 
-                innerCompressedData.WriteValueS32(0, Endian.Big);
+                if (compressionScheme != CompressionScheme.Invalid)
+                {
+                    innerCompressedData.WriteValueS32(0, Endian.Big);
+                }
                 innerCompressedData.WriteString("WSG");
                 innerCompressedData.WriteValueU32(2, endian);
                 innerCompressedData.WriteValueU32(hash, endian);
