@@ -91,7 +91,8 @@ namespace Gibbed.BorderlandsOz.FileFormats
             return platform == Platform.PC ||
                    platform == Platform.X360 ||
                    platform == Platform.PS3 ||
-                   platform == Platform.Shield;
+                   platform == Platform.Shield ||
+                   platform == Platform.Switch;
         }
 
         public void Serialize(Stream output)
