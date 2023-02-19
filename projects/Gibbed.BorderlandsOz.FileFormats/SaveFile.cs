@@ -138,8 +138,11 @@ namespace Gibbed.BorderlandsOz.FileFormats
                 encoder.Build(innerUncompressedBytes);
                 innerCompressedData.WriteBytes(encoder.Encode(innerUncompressedBytes));
 
-                innerCompressedData.Position = 0;
-                innerCompressedData.WriteValueU32((uint)(innerCompressedData.Length - 4), Endian.Big);
+                if (compressionScheme != CompressionScheme.Invalid)
+                {
+                    innerCompressedData.Position = 0;
+                    innerCompressedData.WriteValueU32((uint)(innerCompressedData.Length - 4), Endian.Big);
+                }
 
                 innerCompressedData.Position = 0;
                 innerCompressedBytes = innerCompressedData.ReadBytes((int)innerCompressedData.Length);
